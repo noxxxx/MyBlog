@@ -1,0 +1,29 @@
+@(blogForm: Form[Blog])
+
+@import helper._
+
+@addmain(""){
+  <h1>Add page</h1>
+
+}{
+    <h1>Create your new BLOG ~:</h1>
+    
+    @helper.form(action = routes.Blogs.addBlog, args = 'id -> "addblog") {
+        
+        @inputText(
+            field = blogForm("title"),
+            args = '_label -> "What's the title?", 'placeholder -> "World"
+        )
+        
+        @inputText(
+            field = blogForm("content"),
+            args = '_label -> "What's the content?", 'size -> 100, 'placeholder -> "content"
+        )
+        
+        <p class="buttons">
+            <input type="submit">
+        <p>
+        
+    }
+
+} 
